@@ -6,33 +6,58 @@
 
     <title>Spring Web MVC Thymeleaf Hello World Example</title>
 
-    <!-- Boostrap core css -->
+    <!-- Bootstrap core css -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
 
-    <!-- custom style -->
+    <!-- Custom style -->
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
 
 </head>
 
 <body>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Tech Titans</a>
-</nav>
+    <a class="navbar-brand" href="#">ArtWood</a>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href="customer/list">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="autre_page.html">Products</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <main role="main" class="container">
 
     <div class="starter-template">
         <h1>Customer Form</h1>
-        <h2>
-
-        </h2>
+        <form th:action="@{/customer/saveCustomer}" th:object="${customer}" method="post">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" th:field="*{email}" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
 </main>
-<!-- /.container -->
 
-<!-- Boostrap core js -->
 <script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
 </body>
 </html>

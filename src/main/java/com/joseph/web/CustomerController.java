@@ -2,6 +2,7 @@ package com.joseph.web;
 
 import java.util.List;
 
+import com.joseph.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.joseph.entity.Customer;
 // import com.joseph.exception.ResourceNotFoundException;
-import com.joseph.service.CustomerService;
+
 
 @Controller
 @RequestMapping("/customer")
@@ -30,6 +31,7 @@ public class CustomerController {
     public String listCustomers(Model theModel) {
         List<Customer> theCustomers = customerService.getCustomers();
         theModel.addAttribute("customers", theCustomers);
+        System.out.println("mou");
         return "list-customers";
     }
 
@@ -47,13 +49,13 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
-    /*@GetMapping("/updateForm")
+    @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("customerId") int theId,
                                     Model theModel) throws NullPointerException {
         Customer theCustomer = customerService.getCustomer(theId);
         theModel.addAttribute("customer", theCustomer);
         return "customer-form";
-    }*/
+    }
 
     @GetMapping("/delete")
     public String deleteCustomer(@RequestParam("customerId") int theId) throws NullPointerException {
