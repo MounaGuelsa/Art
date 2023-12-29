@@ -43,6 +43,7 @@
   <div class="starter-template">
     <h1>Product Form</h1>
     <form th:action="@{/product/saveProduct}" th:object="${product}" method="post">
+      <input type="hidden" th:field="*{id}">
       <div class="form-group">
         <label for="firstName">Designation:</label>
         <input type="text" class="form-control" id="firstName" th:field="*{designation}" />

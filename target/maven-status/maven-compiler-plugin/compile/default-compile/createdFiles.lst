@@ -12,6 +12,7 @@ com\joseph\MyServletInitializer.class
 com\joseph\service\CustomerService.class
 com\joseph\web\CustomerController.class
 com\joseph\config\SpringWebConfig.class
+com\joseph\repository\LineOrderRepository.class
 com\joseph\config\PersistenceJPAConfig.class
 com\joseph\entity\Customer.class
 com\joseph\web\OrderController.class
@@ -19,5 +20,6 @@ com\joseph\repository\ProductRepository.class
 com\joseph\service\OrderService.class
 com\joseph\service\ProductService.class
 com\joseph\web\ProductController.class
+com\joseph\entity\LineOrder.class
 com\joseph\web\HelloController.class
 com\joseph\entity\Order.class

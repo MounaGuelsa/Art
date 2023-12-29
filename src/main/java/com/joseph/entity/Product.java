@@ -1,7 +1,9 @@
 package com.joseph.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,8 +24,8 @@ public class Product {
     @Column(name = "stock")
     private String stock;
 
-    @ManyToMany(mappedBy = "products")
-    private Set<Order> orders = new HashSet<>();
+    @OneToMany(mappedBy = "product")
+    private List<LineOrder> lineOrders = new ArrayList<>();
 
     public Product() {
 

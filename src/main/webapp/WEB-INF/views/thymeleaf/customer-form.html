@@ -43,6 +43,7 @@
     <div class="starter-template">
         <h1>Customer Form</h1>
         <form th:action="@{/customer/saveCustomer}" th:object="${customer}" method="post">
+            <input type="hidden" th:field="*{id}">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />

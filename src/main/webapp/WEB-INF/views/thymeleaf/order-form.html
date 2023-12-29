@@ -41,19 +41,24 @@
 <main role="main" class="container">
 
   <div class="starter-template">
-    <h1>Customer Form</h1>
+    <h1>Order Form</h1>
     <form th:action="@{/order/saveOrder}" th:object="${order}" method="post">
+      <input type="hidden" th:field="*{id}">
       <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+        <label for="customers">Select Customer:</label>
+        <select class="form-control" id="customers" th:field="*{customer}" multiple="multiple">
+          <option th:each="c : ${customer}" th:value="${customer}" th:text="${customer.ge}"></option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+        <label for="products">Select Products:</label>
+        <select class="form-control" id="products" th:field="*{products}" multiple="multiple">
+          <option th:each="product : ${products}" th:value="${product}" th:text="${product.designation + ' - ' + product.price }"></option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="text" class="form-control" id="email" th:field="*{email}" />
+        <label for="total">Total :</label>
+        <input type="int" class="form-control" id="total" th:field="*{total}" />
       </div>
       <button type="submit" class="btn btn-primary">Add</button>
     </form>

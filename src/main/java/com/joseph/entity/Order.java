@@ -15,9 +15,10 @@ public class Order {
     private Double total;
     private Date dateCmd = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
     private Status status;
-    @ManyToMany
-    @JoinTable(name = "line_order", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> products = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "order")
+    private List<LineOrder> lineOrders = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -39,13 +40,14 @@ public class Order {
         this.total = total;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<LineOrder> getLineOrders() {
+        return lineOrders;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setLineOrders(List<LineOrder> lineOrders) {
+        this.lineOrders = lineOrders;
     }
+
     public Status getStatus() {
         return status;
     }
