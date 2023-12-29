@@ -10,7 +10,7 @@ public interface OrderService {
 
     public void saveOrder(Order theOrder);
 
-    public Product getOrder(Long id);
+    public Order getOrder(Long id);
 
     public void deleteOrder(Long theId);
 }

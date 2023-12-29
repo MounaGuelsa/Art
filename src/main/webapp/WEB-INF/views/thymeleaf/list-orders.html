@@ -62,7 +62,7 @@
       <th>Status</th>
       <th>Date</th>
       <th>Customer</th>
-      <th>Actions</th>
+      <th colspan="2">Actions</th>
 
     </tr>
     </thead>
@@ -72,7 +72,7 @@
       <td th:text="${o.total }"> DH</td>
       <td th:text="${o.status}"> </td>
       <td th:text="${o.dateCmd}"> </td>
-      <td th:text="${o.customer.getFirstName() + ' ' +o.customer.getLastName()}"> </td>
+      <td th:text="${o.customer.getLastName()+' '+o.customer.getFirstName()}"> </td>
 <!--      <td th:text="${o.products}"> </td>-->
       <td >
         <a onclick="return confirm('Are you sure?');" th:href="@{/order/delete(orderId=${o.id})}">

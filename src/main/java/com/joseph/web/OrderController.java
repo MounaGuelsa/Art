@@ -33,6 +33,13 @@ public class OrderController {
         theModel.addAttribute("order", theOrder);
         return "order-form";
     }
+    @GetMapping("/updateForm")
+    public String showFormForUpdate(@RequestParam("orderId") Long theId,
+                                    Model theModel) throws NullPointerException {
+        Order theOrder = orderService.getOrder(theId);
+        theModel.addAttribute("order", theOrder);
+        return "order-form";
+    }
     @PostMapping("/saveOrder")
     public String saveOrder(@ModelAttribute("order") Order theOrder) {
        return "redirect:/order/list";

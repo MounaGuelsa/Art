@@ -25,7 +25,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Product getOrder(Long id) {
+    public Order getOrder(Long id) {
         return null;
     }
 
