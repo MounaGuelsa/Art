@@ -1,32 +1,42 @@
-Spring MVC hello world example (Maven and Thymeleaf)
-===============================
+# ArtWood- Application de Gestion des Commandes d'ArtWood
 
-This is the source code for the article - [Spring MVC hello world example (Maven and Thymeleaf)](https://mkyong.com/spring-mvc/spring-mvc-hello-world-example/).
+## Description
+Ce projet est une application de gestion des commandes développée pour l'entreprise artisanale ArtWood. Elle a été migrée depuis une technologie Java EE (JSP, Servlets) vers une architecture moderne et évolutive basée sur Spring Core MVC avec Thymeleaf.
 
-_P.S This tutorial is NOT a Spring Boot application, just pure Spring Web MVC!_
+## Fonctionnalités
 
-## 1. Technologies and tools used:
-* Java 11
-* Spring 5.2.22.RELEASE
-* Thymeleaf 3.0.15.RELEASE
-* Embedded Jetty Server 9.4.45.v20220203
-* Servlet API 4.0.4
-* Bootstrap 5.2.0 (webjars)
-* IntelliJ IDEA
-* Maven 3.8.6
-* Spring Test 5.2.22.RELEASE
-* Hamcrest 2.2
-* JUnit 5.9
+1. **Ajout de Commandes**
+    - Les utilisateurs peuvent ajouter ,modifier,afficher et supprimer les commandes .
 
-## 2. How to run this project?
-```shell
-$ git clone https://github.com/mkyong/spring-mvc/
+2. **Visualisation des Commandes**
+    - Une interface intuitive permet aux utilisateurs de voir l'état d'avancement des commandes en cours, y compris les détails spécifiques de chaque commande.
 
-$ cd spring-mvc-hello-world
+3. **Validation des commandes**
+    - Les utilisateurs ont la possibilité de marquer les commandes comme complètes une fois qu'elles ont été traitées. Cela permet de suivre facilement les commandes encore en attente.
 
-$ mvn clean jetty:run
+4. **Gestion des Clients**
+    - Un module de gestion des clients permet aux utilisateurs de créer, afficher et mettre à jour les informations clients pour une gestion centralisée.
 
-# visit http://localhost:8080/spring
+5. **Suivi des Stocks**
+    - Intégration d'une fonctionnalité de suivi des stocks pour s'assurer que les articles nécessaires sont disponibles pour satisfaire les commandes.
+6. **Gestion des produits**
+    -  Les utilisateurs peuvent ajouter ,modifier,afficher et supprimer les produits.
+ 7. **Rapports d'Analyse des Ventes** : Un module de génération de rapports offre aux utilisateurs la possibilité d'analyser les tendances de vente, les préférences des clients, et les performances des articles.
 
-# visit http://localhost:8080/spring/hello/mkyong
-```
+## Diagrammes de Classes
+
+![Diagramme de cas d'utilisation](dc.PNG)
+
+
+![Diagramme de Classe ](duc.PNG)
+
+
+## Stack Technique
+
+- **Langage de Programmation:** Java
+- **Frontend:**  Thymeleaf pour les vues dynamiques
+- **Backend:** spring Core (IOC, DI) - Spring MVC - Hibernate - Spring Data JPA 
+- **Gestion de Dépendances:** Apache Maven
+- **Base de Données:** MySQL
+- **Serveur d'Application:** Jetty
+- **Logging:** SLF4J (Simple Logging Facade for Java) pour la gestion des journaux
