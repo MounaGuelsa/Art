@@ -1,15 +1,11 @@
 package com.joseph.entity;
 
-import javax.persistence.Column;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name="product")
+@Table(name="products")
 public class Product {
 
     @Id
@@ -20,11 +16,14 @@ public class Product {
     @Column(name = "designation")
     private String designation;
 
-    @Column(name = "prix")
-    private String prix;
+    @Column(name = "price")
+    private String price;
 
     @Column(name = "stock")
     private String stock;
+
+    @ManyToMany(mappedBy = "products")
+    private Set<Order> orders = new HashSet<>();
 
     public Product() {
 
@@ -46,12 +45,12 @@ public class Product {
         this.designation = designation;
     }
 
-    public String getPrix() {
-        return prix;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPrix(String prix) {
-        this.prix = prix;
+    public void setPrice(String prix) {
+        this.price = prix;
     }
 
     public String getStock() {
@@ -67,7 +66,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", designation='" + designation + '\'' +
-                ", prix='" + prix + '\'' +
+                ", prix='" + price + '\'' +
                 ", stock='" + stock + '\'' +
                 '}';
     }
